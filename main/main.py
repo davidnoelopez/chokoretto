@@ -30,3 +30,5 @@ if config.DEVELOPMENT:
   from werkzeug import debug
   app.wsgi_app = debug.DebuggedApplication(app.wsgi_app, evalex=True)
   app.testing = False
+
+import post

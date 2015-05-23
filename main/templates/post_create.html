@@ -1,0 +1,24 @@
+# extends 'base.html'
+# import 'macro/forms.html' as forms
+
+# block content
+  <div class="page-header">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <form method="POST" action=".">
+        <fieldset>
+          {{form.csrf_token}}
+
+          {{forms.text_field(form.title)}}
+          {{forms.date_field(form.date)}}
+          {{forms.text_field(form.body, autofocus=True)}}
+          <button type="submit" class="btn btn-primary btn-block">
+            Create Post
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+# endblock

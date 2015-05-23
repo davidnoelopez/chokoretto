@@ -12,10 +12,14 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         # include 'bit/contact_menu.html'
+        <li class="{{'active' if html_class == 'post-create'}}">
+        <a href="{{url_for('post_create')}}"><i class="fa fa-file"></i> Create Post</a>
+  </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         # include 'bit/user_menu.html'
       </ul>
+
     </nav>
   </div>
 </header>
