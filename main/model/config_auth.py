@@ -25,8 +25,6 @@ class ConfigAuth(object):
   linkedin_secret_key = ndb.StringProperty(default='', verbose_name='Secret Key')
   microsoft_client_id = ndb.StringProperty(default='', verbose_name='Client ID')
   microsoft_client_secret = ndb.StringProperty(default='', verbose_name='Client Secret')
-  reddit_client_id = ndb.StringProperty(default='', verbose_name='Client ID')
-  reddit_client_secret = ndb.StringProperty(default='', verbose_name='Client Secret')
   twitter_consumer_key = ndb.StringProperty(default='', verbose_name='Consumer Key')
   twitter_consumer_secret = ndb.StringProperty(default='', verbose_name='Consumer Secret')
   vk_app_id = ndb.StringProperty(default='', verbose_name='App ID')
@@ -67,10 +65,6 @@ class ConfigAuth(object):
     return bool(self.microsoft_client_id and self.microsoft_client_secret)
 
   @property
-  def has_reddit(self):
-    return bool(self.reddit_client_id and self.reddit_client_secret)
-
-  @property
   def has_twitter(self):
     return bool(self.twitter_consumer_key and self.twitter_consumer_secret)
 
@@ -99,8 +93,6 @@ class ConfigAuth(object):
       'linkedin_secret_key': fields.String,
       'microsoft_client_id': fields.String,
       'microsoft_client_secret': fields.String,
-      'reddit_client_id': fields.String,
-      'reddit_client_secret': fields.String,
       'twitter_consumer_key': fields.String,
       'twitter_consumer_secret': fields.String,
       'vk_app_id': fields.String,
