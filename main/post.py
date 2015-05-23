@@ -4,7 +4,7 @@ import flask
 import auth
 import model
 from main import app
-
+import util
 
 class PostUpdateForm(wtf.Form):
   title = wtforms.StringField('Title', [wtforms.validators.required()])
@@ -29,4 +29,19 @@ def post_create():
       html_class='post-create',
       title='Create Post',
       form=form,
+    )
+
+@app.route('/post/')
+@auth.login_required
+def post_list():
+  post_dbs, post_cursor = model.Post.get_dbs(
+      user_key=auth.current_user_key(),
+    )
+
+  return flask.render_template(
+      'post_list.html',
+      html_class='post-list',
+      title='Posts List',
+      post_dbs=post_dbs,
+      next_url=util.generate_next_url(post_cursor),
     )
